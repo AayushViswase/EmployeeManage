@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class CurerrentSession {
 	@Id
 	private String mail;
-	private Integer sessionId;
+	private String sessionId;
 
 }

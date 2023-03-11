@@ -32,7 +32,7 @@ public class EmployeeServicelms implements EmployeeService {
 		// TODO Auto-generated method stub
 		CurerrentSession session = currentSessionRepository.findBySessionId(sessionKey)
 				.orElseThrow(() -> new InvalidInput("invalid session"));
-		User user = userRepository.findByUserMail(session.getMail());
+		User user = userRepository.findByUserMail(session.getMail()).get();
 		UserResponse response = mapper.map(user, UserResponse.class);
 		return response;
 	}
@@ -42,7 +42,7 @@ public class EmployeeServicelms implements EmployeeService {
 		// TODO Auto-generated method stub
 		CurerrentSession session = currentSessionRepository.findBySessionId(sessionKey)
 				.orElseThrow(() -> new InvalidInput("invalid session"));
-		User user = userRepository.findByUserMail(session.getMail());
+		User user = userRepository.findByUserMail(session.getMail()).get();
 		if (user.getPassword().equals(passwordRequest.getCurrentPass())) {
 			if (passwordRequest.getNewPass().equals(passwordRequest.getConfirmPass())) {
 				user.setPassword(passwordRequest.getNewPass());
