@@ -50,14 +50,10 @@ public class EmployeeServicelms implements EmployeeService {
 			}else {
 				throw new InvalidInput("Password did not match");
 			}
-
 		}
 		else {
 			throw new InvalidInput("Invalid current password");
 		}
-
-
-
 		return "password update succesfully";
 	}
 

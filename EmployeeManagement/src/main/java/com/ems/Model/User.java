@@ -2,6 +2,8 @@ package com.ems.Model;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -16,6 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userID;
 	private String firstName;
 	private String lastName;

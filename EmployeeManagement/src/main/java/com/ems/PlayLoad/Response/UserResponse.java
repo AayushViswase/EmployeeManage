@@ -17,6 +17,7 @@ public class UserResponse {
 	private String lastName;
 	private String userMail;
 	private Integer depID;
+	private String department;
 	@Enumerated(EnumType.STRING)
 	private Role role;
 }
