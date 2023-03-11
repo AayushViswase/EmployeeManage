@@ -23,18 +23,12 @@ import com.ems.repository.UserRepository;
 public class AdminServicelms implements AdminService {
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
 	private ModelMapper mapper;
+	@Autowired
 	private CurrentSessionRepository currentSessionRepository;
+	@Autowired
 	private DepartmentRepository departmentRepository;
-
-	public AdminServicelms(UserRepository userRepository, ModelMapper mapper,
-			CurrentSessionRepository currentSessionRepository, DepartmentRepository departmentRepository) {
-
-		this.userRepository = userRepository;
-		this.mapper = mapper;
-		this.currentSessionRepository = currentSessionRepository;
-		this.departmentRepository = departmentRepository;
-	}
 
 	@Override
 	public List<UserResponse> getAllEmployee(String sessionKey) throws InvalidInput, UnauthoriseException {
@@ -87,7 +81,7 @@ public class AdminServicelms implements AdminService {
 				|| request.getPassword().isEmpty()) {
 			throw new InvalidInput("Invalid Signup Request");
 		}
-		if (userRepository.findByMail(request.getUserMail()) != null) {
+		if (userRepository.findByUserMail(request.getUserMail()) != null) {
 			throw new InvalidInput("User with same email already exists");
 		}
 		User user = new User();
